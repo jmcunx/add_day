@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 2021 2021
+ * Copyright (c) 2020 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -19,9 +19,10 @@
  */
 
 #define PROG_NAME "add_list"
-#define PROG_REV  "$Id: add_day.c,v 1.2 2021/02/21 18:38:39 jmccue Exp $"
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
