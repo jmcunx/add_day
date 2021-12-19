@@ -123,14 +123,9 @@ void show_rev(FILE *fp)
 {
 
   fprintf(fp,"%s %s:\n", PROG_NAME, LIT_REV);
-  fprintf(fp,"\t%s\n",   PROG_REV);
 
-#ifdef J_LIB2M_H
-  fprintf(fp, "\t%s\n", J_LIB2M_H);
-#endif
 #ifdef J_LIB2_H
-  fprintf(fp, "\t%s\n", J_LIB2_H);
-  fprintf(fp, "\t     %s %s\n", LIT_INFO_02, j2_get_build());
+  fprintf(fp, "\t%s %s\n", LIT_INFO_02, j2_get_build());
 #endif
 
 #ifdef OSTYPE
