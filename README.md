@@ -12,9 +12,9 @@ This requires [j\_lib2](https://github.com/jmcunx/j_lib2) to build.
 only confuses me, but this seems to be good enough for me.
 
 **To compile:**
-* Set "DESTDIR" for where you want this to install.
-  Examples: setenv DESTDIR /usr/local
-            export DESTDIR=/usr/local
+* Set "DESTDIR" for where you want this to install.  Examples:
+  * setenv DESTDIR /usr/local
+  * export DESTDIR=/usr/local
 * this assumes [j\_lib2](https://github.com/jmcunx/j_lib2)
   is also installed under "DESTDIR".
 * Edit Makefile, uncomment areas associated to the OS
@@ -26,9 +26,6 @@ only confuses me, but this seems to be good enough for me.
   * BSD 32 bit
   * AIX
 
-**Will install:**
-* Binary add\_day
-* Manual add\_day.1[.gz] depending on OS
-
-To uninstall, execute
-* "make uninstall" from the source directory
+_To uninstall_, execute
+"make uninstall"
+from the source directory
