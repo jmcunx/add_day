@@ -121,7 +121,7 @@ install:	all
 	-$(STRIP) add_day
 	$(CP) add_day $(PRODUCTION)/add_day
 	$(CHMOD) 755 $(PRODUCTION)/add_day
-	$(CP) add_day.1.gz $(PRODMAN)/add_day.1$(GZ)
+	$(CP) add_day.1$(GZ) $(PRODMAN)/add_day.1$(GZ)
 	$(CHMOD) 644 $(PRODMAN)/add_day.1$(GZ)
 
 uninstall:	all
