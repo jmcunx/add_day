@@ -24,13 +24,38 @@ PRODPMAN=$(DESTDIR)/man
 PRODMAN=$(PRODPMAN)/man1
 INCJLIB2=-I$(DESTDIR)/include  # may need to be changed for j_lib2.h location
 
-#--- Linux and BSD specific
+#>>>>>>> select desired OS
+#--- Linux 64 bit
 WALL=-Wall -m64
 ETAGS=etags
 GZ=.gz
 NROFF=cat
 OSDESC != uname -smr
-LIBJLIB2=-L$(DESTDIR)/lib64  # may need to be changed for j_lib2 location
+LIBJLIB2=-L$(DESTDIR)/lib64
+
+#--- Linux 32 bit
+#WALL=-Wall
+#ETAGS=etags
+#GZ=.gz
+#NROFF=cat
+#OSDESC != uname -smr
+#LIBJLIB2=-L$(DESTDIR)/lib
+
+#--- BSD 64 bit
+#WALL=-Wall -m64
+#ETAGS=etags
+#GZ=.gz
+#NROFF=cat
+#OSDESC != uname -smr
+#LIBJLIB2=-L$(DESTDIR)/lib
+
+#--- BSD 32 bit
+#WALL=-Wall
+#ETAGS=etags
+#GZ=.gz
+#NROFF=cat
+#OSDESC != uname -smr
+#LIBJLIB2=-L$(DESTDIR)/lib
 
 #--- AIX specific
 #WALL=-bnoquiet

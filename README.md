@@ -15,12 +15,16 @@ only confuses me, but this seems to be good enough for me.
 * Set "DESTDIR" for where you want this to install.
   Examples: setenv DESTDIR /usr/local
             export DESTDIR=/usr/local
-* Edit Makefile
-  * If on AIX and comment out the Linux/BSD area and uncomment AIX Area.
-  * If Linux or a BSD, validate setting for "LIBJLIB2", right now
-    it defaults to 64 bit Linux.
-  * this assumes [j\_lib2](https://github.com/jmcunx/j_lib2)
-    is also installed under "DESTDIR".
+* this assumes [j\_lib2](https://github.com/jmcunx/j_lib2)
+  is also installed under "DESTDIR".
+* Edit Makefile, uncomment areas associated to the OS
+  you want to compile on.
+  OS Sections:
+  * Linux 64 bit (default)
+  * Linux 32 bit
+  * BSD 64 bit
+  * BSD 32 bit
+  * AIX
 
 **Will install:**
 * Binary add\_day
