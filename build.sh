@@ -4,6 +4,51 @@
 # for a UN*X Type Systems
 #
 
+#--- try and find were j_lib2 is located
+f_findl()
+{
+    if test -f "$DESTDIR/$g_lib/libj_lib2.so" -o -f "$DESTDIR/$g_lib/libj_lib2.a"
+    then
+	g_include="$DESTDIR/include"
+	g_libloc="$DESTDIR/$g_lib"
+	return
+    fi
+    if test -f "/usr/$g_lib/libj_lib2.so" -o -f "/usr/$g_lib/libj_lib2.a"
+    then
+	g_include="/usr/include"
+	g_libloc="/usr/$g_lib"
+	return
+    fi
+    if test -f "/usr/local/$g_lib/libj_lib2.so" -o -f "/usr/local/$g_lib/libj_lib2.a"
+    then
+	g_include="/usr/local/include"
+	g_libloc="/usr/local/$g_lib"
+	return
+    fi
+    if test -f "/opt/jmc/$g_lib/libj_lib2.so" -o -f "/opt/jmc/$g_lib/libj_lib2.a"
+    then
+	g_include="/opt/jmc/include"
+	g_libloc="/opt/jmc/$g_lib"
+	return
+    fi
+    if test -f "$HOME/local/$g_lib/libj_lib2.so" -o -f "$HOME/local/$g_lib/libj_lib2.a"
+    then
+	g_include="$HOME/local/include"
+	g_libloc="$HOME/local/$g_lib"
+	return
+    fi
+    if test -f "$HOME/Archive/local/$g_lib/libj_lib2.so" -o -f "$HOME/Archive/local/$g_lib/libj_lib2.a"
+    then
+	g_include="$HOME/Archive/local/include"
+	g_libloc="$HOME/Archive/local/$g_lib"
+	return
+    fi
+
+    echo "E10: cannot find j_lib2"
+    exit 2
+
+} # END: f_findl()
+
 #------------------------------------------------------------------------------
 # set install location and OS Info
 #------------------------------------------------------------------------------
@@ -46,40 +91,12 @@ case "`uname -m`" in
 	;;
 esac
 
-#------------------------------------------------------------------------------
-# look for j_lib2
-#------------------------------------------------------------------------------
-if test -f "$DESTDIR/$g_lib/libj_lib2.so" -o "$DESTDIR/$g_lib/libj_lib2.a"
-then
-    g_include="$DESTDIR/include"
-    g_libloc="$DESTDIR/$g_lib"
-else
-    if test -f "/usr/$g_lib/libj_lib2.so" -o "/usr/$g_lib/libj_lib2.a"
-    then
-	g_include="/usr/include"
-	g_libloc="/usr/$g_lib"
-    else
-	if test -f "/usr/local/$g_lib/libj_lib2.so" -o "/usr/local/$g_lib/libj_lib2.a"
-	then
-	    g_include="/usr/local/include"
-	    g_libloc="/usr/local/$g_lib"
-	else
-	    if test -f "/opt/jmc/$g_lib/libj_lib2.so" -o "/opt/jmc/$g_lib/libj_lib2.a"
-	    then
-		g_include="/opt/jmc/include"
-		g_libloc="/opt/jmc/$g_lib"
-	    else
-		echo "E10: cannot find j_lib2"
-		exit 2
-	    fi
-	fi
-    fi
-fi
+f_findl
 
 #------------------------------------------------------------------------------
 # create Makefile
 #------------------------------------------------------------------------------
-sed "s%$g_sed_1%%;s%INCJLIB%$g_include%g;s%JLIBLOC%$g_libloc%g" < Makefile.unx > Makefile
+sed "s%$g_sed_1%%;s%INCJLIB%$g_include%g;s%JLIBLOC%$g_libloc%g;s%LOCATION%$DESTDIR%" < Makefile.unx > Makefile
 
 cat << EOF
 
