@@ -14,8 +14,6 @@ only confuses me, but this seems to be good enough for me.
 **To compile:**
 * If "DESTDIR" is not set, will install under /usr/local
 * Execute ./build.sh to create a Makefile
-* this assumes [j\_lib2](https://github.com/jmcunx/j_lib2)
-  is also installed under "DESTDIR".
 * Works on Linux, BSD and AIX
 
 _To uninstall_, execute
