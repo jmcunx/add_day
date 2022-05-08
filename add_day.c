@@ -389,6 +389,13 @@ int main(int argc, char **argv)
       dlow = datetol(&d);
     }
 
+  if (w.date_low != (char *) NULL)
+    free(w.date_low);
+  if (w.date_high != (char *) NULL)
+    free(w.date_high);
+
+  exit(EXIT_SUCCESS);
+
 } /* main() */
 
 /* END: add_day.c */
