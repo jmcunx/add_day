@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 2021 2022
+ * Copyright (c) 2020 ... 2023 2024
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -18,8 +18,6 @@
  * aday.c -- Generate a list of Dates between a specified range
  */
 
-#define PROG_NAME "add_list"
-
 #ifndef _MSDOS
 #include <sys/param.h>
 #endif
@@ -34,42 +32,26 @@
 #ifndef OpenBSD
 #include <sys/timeb.h>
 #endif
-
 #ifdef OpenBSD
 #include <sys/time.h>
-#define BSD_TODAY 1
 #endif
 
 #ifdef __FreeBSD_version
 #include <sys/time.h>
-#define BSD_TODAY 1
 #endif
 
 #ifdef __NetBSD_Version__
 #include <sys/time.h>
-#define BSD_TODAY 1
 #endif
 
+#ifdef HAVE_JLIB
 #include <j_lib2.h>
 #include <j_lib2m.h>
+#endif
+
+#include "add_day.h"
 
 #define SCKARG 80
-#define FMT_DATE 11
-
-struct s_work
-{
-  int ofmt;
-  char *date_low;
-  char *date_high;
-};
-
-#define FMT_OUT_00   0    /* YYYYMMDD   */
-#define FMT_OUT_01   1    /* YYYY/MM/DD */
-#define FMT_OUT_02   2    /* YYYY-MM-DD */
-#define FMT_OUT_03   3    /* MM/DD/YYYY */
-#define FMT_OUT_04   4    /* DD-MM-YYYY */
-
-#define MSG_HELP_11  "Print Dates by adding one Day"
 
 /*
  * verify_date() -- Validate a date argument
