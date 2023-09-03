@@ -5,8 +5,10 @@ use my 2FA access to my repositories via my Cell Phone or some
 proprietary application.  So updates to this project will no
 longer occur on GitHub.  Updates can be downloaded from my
 gemini capsule:
+
 * gemini://gem.sdf.org/jmccue/reposatory.gmi
 * gemini://gem.sdf.org/jmccue/reposatory.gmi (mirror)
+
 [See gemini wikipedia](https://en.wikipedia.org/wiki/Gemini_(protocol)#Software) for clients.
 
 
